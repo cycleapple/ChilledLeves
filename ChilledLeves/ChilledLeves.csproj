@@ -2,8 +2,8 @@
 <Project Sdk="Dalamud.NET.Sdk/13.0">
 
   <PropertyGroup>
-    <Version>1.0.1.18</Version>
-    <Description>Bringing in automating the leve process, one leve at a time.</Description>
+    <Version>1.0.1.19</Version>
+    <Description>逐步協助自動處理理符任務。</Description>
     <PackageProjectUrl>https://github.com/goatcorp/ChilledLeves</PackageProjectUrl>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <IsPackable>true</IsPackable>

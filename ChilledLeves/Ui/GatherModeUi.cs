@@ -119,14 +119,14 @@ internal class GatherModeUi : Window
             
             // Left-aligned buttons
             ImGui.BeginGroup();
-            if (ImGui.Button("Main Window", new Vector2(mainBtnWidth, navButtonHeight)))
+            if (ImGui.Button("主視窗", new Vector2(mainBtnWidth, navButtonHeight)))
             {
                 P.mainWindow.IsOpen = true;
             }
             
             ImGui.SameLine();
             
-            if (ImGui.Button("Worklist Window", new Vector2(worklistBtnWidth, navButtonHeight)))
+            if (ImGui.Button("工作清單", new Vector2(worklistBtnWidth, navButtonHeight)))
             {
                 P.workListUi.IsOpen = true;
             }
@@ -401,7 +401,7 @@ internal class GatherModeUi : Window
         // Drawing start button
         using (ImRaii.Disabled(SchedulerMain.AreWeTicking))
         {
-            if (ImGui.Button("Start Gathering Leves", new Vector2(ImGui.GetContentRegionAvail().X, buttonHeight)))
+            if (ImGui.Button("開始採集理符", new Vector2(ImGui.GetContentRegionAvail().X, buttonHeight)))
             {
                 SchedulerMain.WorkListMode = false;
                 SchedulerMain.GatheringMode = true;
@@ -412,7 +412,7 @@ internal class GatherModeUi : Window
         // Drawing stop button
         using (ImRaii.Disabled(!SchedulerMain.AreWeTicking))
         {
-            if (ImGui.Button("Stop Gathering Leves", new Vector2(ImGui.GetContentRegionAvail().X, buttonHeight)))
+            if (ImGui.Button("停止採集理符", new Vector2(ImGui.GetContentRegionAvail().X, buttonHeight)))
             {
                 SchedulerMain.DisablePlugin();
             }
@@ -425,7 +425,7 @@ internal class GatherModeUi : Window
         // Row 1 - NPC Selection
         ImGui.TableNextRow();
         ImGui.TableSetColumnIndex(0);
-        ImGui.Text("Levequest NPC:");
+        ImGui.Text("理符任務 NPC：");
 
         ImGui.TableNextColumn();
         string selectableText = $"{C.SelectedNpcName} → {C.LocationName}";
@@ -436,7 +436,7 @@ internal class GatherModeUi : Window
             using var textStyle = new ThemeHelper.StyleScope();
             textStyle.PushColor(ImGuiCol.Text, ThemeHelper.FrostWhite);
 
-            if (ImGui.Button("Open NPC Selection"))
+            if (ImGui.Button("開啟 NPC 選擇"))
             {
                 ImGui.OpenPopup("NPC Selection Popup"); // Open the popup when the selectable is clicked
             }
@@ -604,7 +604,7 @@ internal class GatherModeUi : Window
         // Row 2 - Class Selection
         ImGui.TableNextRow();
         ImGui.TableSetColumnIndex(0);
-        ImGui.Text("Class");
+        ImGui.Text("職業");
 
         ImGui.TableNextColumn();
         float classComboWidth = Math.Max(120, textLineHeight * 7);
@@ -715,7 +715,7 @@ internal class GatherModeUi : Window
         // Row 3 - Run Until option
         ImGui.TableNextRow();
         ImGui.TableSetColumnIndex(0);
-        ImGui.Text("Run Until:");
+        ImGui.Text("執行直到：");
 
         ImGui.TableNextColumn();
         float runUntilComboWidth = 0f;

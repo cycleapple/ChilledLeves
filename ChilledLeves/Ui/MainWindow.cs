@@ -174,7 +174,7 @@ namespace ChilledLeves.Ui
                         if (ImGui.IsItemHovered())
                         {
                             ImGui.BeginTooltip();
-                            ImGui.Text("Press the button to copy the repo to your clipboard");
+                            ImGui.Text("按下按鈕將插件倉庫網址複製到剪貼簿");
                             ImGui.EndTooltip();
                         }
 
@@ -186,7 +186,7 @@ namespace ChilledLeves.Ui
                     }
                     else if (HasPlugin("vnavmesh"))
                     {
-                        if (ImGui.Button("Start", new Vector2(ImGui.GetContentRegionAvail().X, textLineHeight * 1.5f)))
+                        if (ImGui.Button("開始", new Vector2(ImGui.GetContentRegionAvail().X, textLineHeight * 1.5f)))
                         {
                             SchedulerMain.WorkListMode = true;
                             SchedulerMain.EnablePlugin();
@@ -195,18 +195,18 @@ namespace ChilledLeves.Ui
                 }
                 using (ImRaii.Disabled(!SchedulerMain.AreWeTicking))
                 {
-                    if (ImGui.Button("Stop", new Vector2(ImGui.GetContentRegionAvail().X, textLineHeight * 1.5f)))
+                    if (ImGui.Button("停止", new Vector2(ImGui.GetContentRegionAvail().X, textLineHeight * 1.5f)))
                     {
                         SchedulerMain.DisablePlugin();
                     }
                 }
 
                 // Two extra plugin UI toggles: Worklist and Gathering Grind.
-                if (ImGui.Button("Open Worklist", new Vector2(ImGui.GetContentRegionAvail().X, textLineHeight * 1.5f)))
+                if (ImGui.Button("開啟工作清單", new Vector2(ImGui.GetContentRegionAvail().X, textLineHeight * 1.5f)))
                 {
                     P.workListUi.IsOpen = !P.workListUi.IsOpen;
                 }
-                if (ImGui.Button("Open Priority Leve Grind", new Vector2(ImGui.GetContentRegionAvail().X, textLineHeight * 1.5f)))
+                if (ImGui.Button("開啟優先理符執行", new Vector2(ImGui.GetContentRegionAvail().X, textLineHeight * 1.5f)))
                 {
                     P.gatherModeUi.IsOpen = !P.gatherModeUi.IsOpen;
                 }
@@ -216,7 +216,7 @@ namespace ChilledLeves.Ui
                 ImGui.Spacing();
 
                 bool useIceTheme = C.UseIceTheme;
-                if (ImGui.Checkbox("Use Ice Theme", ref useIceTheme))
+                if (ImGui.Checkbox("使用冰雪主題", ref useIceTheme))
                 {
                     C.UseIceTheme = useIceTheme;
                     C.Save();
@@ -226,11 +226,11 @@ namespace ChilledLeves.Ui
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.BeginTooltip();
-                    ImGui.Text("Toggle between custom ice theme and Dalamud's default theme");
+                    ImGui.Text("切換自訂冰雪主題與 Dalamud 預設主題");
                     ImGui.EndTooltip();
                 }
                 bool RapidImport = C.RapidImport;
-                if (ImGui.Checkbox("Rapid Import Leves", ref RapidImport))
+                if (ImGui.Checkbox("快速加入理符", ref RapidImport))
                 {
                     C.RapidImport = RapidImport;
                     C.Save();
@@ -240,11 +240,11 @@ namespace ChilledLeves.Ui
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.BeginTooltip();
-                    ImGui.Text("When you left click a leve, will immediately add it to your worklist");
-                    ImGui.Text("While this is disabled, you can also double click to add a leve as well!");
+                    ImGui.Text("按一下滑鼠左鍵即可立即將理符加入工作清單");
+                    ImGui.Text("停用時仍可連按兩下加入理符。");
                     ImGui.EndTooltip();
                 }
-                if (ImGui.Button("Alert Settings", new Vector2(ImGui.GetContentRegionAvail().X, textLineHeight * 1.5f)))
+                if (ImGui.Button("通知設定", new Vector2(ImGui.GetContentRegionAvail().X, textLineHeight * 1.5f)))
                 {
                     P.alertSettings.IsOpen = true;
                 }
@@ -262,7 +262,7 @@ namespace ChilledLeves.Ui
                 #region Favorites Checkbox
 
                 bool showFavorites = C.OnlyFavorites;
-                if (ImGui.Checkbox("Show Favorites Only", ref showFavorites))
+                if (ImGui.Checkbox("只顯示我的最愛", ref showFavorites))
                 {
                     C.OnlyFavorites = showFavorites;
                     if (showFavorites)
@@ -274,7 +274,7 @@ namespace ChilledLeves.Ui
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.BeginTooltip();
-                    ImGui.Text("Show only leves marked as favorites");
+                    ImGui.Text("只顯示已加入我的最愛的理符");
                     ImGui.EndTooltip();
                 }
 
@@ -283,7 +283,7 @@ namespace ChilledLeves.Ui
                 #region Show Completed
                 int completeFilter = (int)C.CompleteFilter;
                 bool showCompleted = completeFilter == 1;
-                if (ImGui.Checkbox("Show Completed Only", ref showCompleted))
+                if (ImGui.Checkbox("只顯示已完成", ref showCompleted))
                 {
                     C.CompleteFilter = showCompleted ? 1u : 0u;
                     if (showCompleted)
@@ -297,7 +297,7 @@ namespace ChilledLeves.Ui
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.BeginTooltip();
-                    ImGui.Text("Show only completed leves");
+                    ImGui.Text("只顯示已完成的理符");
                     ImGui.EndTooltip();
                 }
 
@@ -306,7 +306,7 @@ namespace ChilledLeves.Ui
                 #region Show Incomplete
 
                 bool showIncomplete = completeFilter == 2;
-                if (ImGui.Checkbox("Show Incomplete Only", ref showIncomplete))
+                if (ImGui.Checkbox("只顯示未完成", ref showIncomplete))
                 {
                     C.CompleteFilter = showIncomplete ? 2u : 0u;
                     if (showIncomplete)
@@ -320,7 +320,7 @@ namespace ChilledLeves.Ui
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.BeginTooltip();
-                    ImGui.Text("Show only incomplete leves");
+                    ImGui.Text("只顯示未完成的理符");
                     ImGui.EndTooltip();
                 }
 
@@ -330,7 +330,7 @@ namespace ChilledLeves.Ui
 
                 // Reset all filters button
                 ImGui.Spacing();
-                if (ImGui.Button("Reset All Filters", new Vector2(ImGui.GetContentRegionAvail().X * 0.9f, 0)))
+                if (ImGui.Button("重設所有篩選條件", new Vector2(ImGui.GetContentRegionAvail().X * 0.9f, 0)))
                 {
                     C.OnlyFavorites = false;
                     C.CompleteFilter = 0;
@@ -358,7 +358,7 @@ namespace ChilledLeves.Ui
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.BeginTooltip();
-                    ImGui.Text("Clear all active filters");
+                    ImGui.Text("清除所有目前套用的篩選條件");
                     ImGui.EndTooltip();
                 }
 
@@ -436,7 +436,7 @@ namespace ChilledLeves.Ui
                 ImGui.Spacing();
                 ImGui.Spacing();
 
-                ImGui.Text("Additional Filters");
+                ImGui.Text("其他篩選條件");
 
                 ImGui.Separator();
                 ImGui.Spacing();
@@ -453,7 +453,7 @@ namespace ChilledLeves.Ui
                     ImGui.TableSetColumnIndex(0);
                     // Level filter
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("Level:");
+                    ImGui.Text("等級：");
                     FilterSize1 = Math.Max(ImGui.CalcTextSize("Level:").X, FilterSize1);
 
                     ImGui.TableNextColumn();
@@ -471,7 +471,7 @@ namespace ChilledLeves.Ui
                     // Name filter
                     ImGui.TableSetColumnIndex(0);
                     ImGui.AlignTextToFramePadding();
-                    ImGui.Text("Name:");
+                    ImGui.Text("名稱：");
                     FilterSize1 = Math.Max(ImGui.CalcTextSize("Name:").X, FilterSize1);
 
                     ImGui.TableNextColumn();
@@ -599,16 +599,16 @@ namespace ChilledLeves.Ui
                     ImGui.Separator();
 
                     // Rewards section
-                    ImGui.Text("Rewards");
+                    ImGui.Text("報酬");
 
                     ImGui.BeginTable("reward_table", 2, ImGuiTableFlags.SizingFixedFit);
                     ImGui.TableNextColumn();
-                    ImGui.Text("EXP Reward:");
+                    ImGui.Text("經驗值報酬：");
                     ImGui.TableNextColumn();
                     ImGui.Text($"{LeveDictionary[leve].ExpReward:N0}");
                     ImGui.TableNextRow();
                     ImGui.TableNextColumn();
-                    ImGui.Text("Gil Reward:");
+                    ImGui.Text("金幣報酬：");
                     ImGui.TableNextColumn();
                     ImGui.Text($"{LeveDictionary[leve].GilReward:N0} ± 5%");
                     ImGui.EndTable();
@@ -616,14 +616,14 @@ namespace ChilledLeves.Ui
                     ImGui.Separator();
 
                     // Location
-                    ImGui.Text("Location");
+                    ImGui.Text("地點");
 
                     var vendorId = LeveDictionary[leve].LeveVendorID;
                     var startZoneId = LeveNPCDict[vendorId].ZoneID;
 
                     ImGui.BeginTable("location_table", 2, ImGuiTableFlags.SizingFixedFit);
                     ImGui.TableNextColumn();
-                    ImGui.Text("Starting Zone:");
+                    ImGui.Text("開始區域：");
                     ImGui.TableNextColumn();
                     ImGui.Text($"{ZoneName(startZoneId)}");
                     ImGui.TableNextRow();
@@ -647,7 +647,7 @@ namespace ChilledLeves.Ui
                         string turninName = turninNPCId != 0 ? NPCName(turninNPCId) : "not valid";
                         ImGui.TableNextColumn();
                         ImGui.AlignTextToFramePadding();
-                        ImGui.Text("Turnin NPC:");
+                        ImGui.Text("繳交 NPC：");
                         ImGui.TableNextColumn();
 
                         if (turninNPCId != 0)
@@ -677,7 +677,7 @@ namespace ChilledLeves.Ui
 
                     ImGui.BeginTable("status_table", 2, ImGuiTableFlags.SizingFixedFit);
                     ImGui.TableNextColumn();
-                    ImGui.Text("Is Complete:");
+                    ImGui.Text("是否完成：");
                     ImGui.TableNextColumn();
                     if (IsComplete(leve))
                     {
@@ -757,7 +757,7 @@ namespace ChilledLeves.Ui
                     { */
                     if (C.workList.Any(e => e.LeveID == leve))
                     {
-                        if (ImGui.Button("Remove from WorkList", new Vector2(ImGui.GetContentRegionAvail().X, 0)))
+                        if (ImGui.Button("從工作清單移除", new Vector2(ImGui.GetContentRegionAvail().X, 0)))
                         {
                             C.workList.RemoveAll(e => e.LeveID == leve);
                             C.Save();
@@ -765,7 +765,7 @@ namespace ChilledLeves.Ui
                     }
                     else
                     {
-                        if (ImGui.Button("Add to WorkList", new Vector2(ImGui.GetContentRegionAvail().X, 0)))
+                        if (ImGui.Button("加入工作清單", new Vector2(ImGui.GetContentRegionAvail().X, 0)))
                         {
                             C.workList.Add(new LeveEntry { LeveID = leve, InputValue = 1 });
                             C.Save();
@@ -778,7 +778,7 @@ namespace ChilledLeves.Ui
                      * For some reason it's saying things aren't finished when they are...
                     if (!levesQuestUnlocked)
                     {
-                        ImGui.TextColored(ImGuiColors.DalamudRed, "⚠ Required quest not completed");
+                        ImGui.TextColored(ImGuiColors.DalamudRed, "⚠ 尚未完成必要任務");
                         if (ImGui.IsItemHovered())
                         {
                             bool LimsaLeveNPC = IsMSQComplete(66005); // Just Deserts
@@ -786,7 +786,7 @@ namespace ChilledLeves.Ui
                             bool GridaniaNPC = IsMSQComplete(65665);  // Spirithold Broken
 
                             ImGui.BeginTooltip();
-                            ImGui.Text("You need to complete the following quest(s) to be able to do this leve");
+                            ImGui.Text("必須先完成下列任務才能執行此理符");
                             if (requiredQuestId == 0)
                             {
                                 uint questId = 0;

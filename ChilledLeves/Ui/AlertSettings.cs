@@ -42,7 +42,7 @@ namespace ChilledLeves.Ui
                 C.Save();
             }
 
-            if (ImGui.RadioButton("Blacklist", blacklist))
+            if (ImGui.RadioButton("黑名單", blacklist))
             {
                 whitelist = false;
                 C.whitelistFeature = whitelist;
@@ -57,11 +57,11 @@ namespace ChilledLeves.Ui
             if (ImGui.IsItemHovered())
             {
                 ImGui.BeginTooltip();
-                ImGui.Text("Will have it alert for all characters except the ones in the blacklist");
+                ImGui.Text("除了黑名單中的角色以外，所有角色都會收到通知");
                 ImGui.EndTooltip();
             }
 
-            if (ImGui.RadioButton("Whitelist", whitelist))
+            if (ImGui.RadioButton("白名單", whitelist))
             {
                 whitelist = true;
                 C.whitelistFeature = whitelist;
@@ -76,7 +76,7 @@ namespace ChilledLeves.Ui
             if (ImGui.IsItemHovered())
             {
                 ImGui.BeginTooltip();
-                ImGui.Text("Will ONLY alert for the characters in the whitelist");
+                ImGui.Text("只有白名單中的角色會收到通知");
                 ImGui.EndTooltip();
             }
 
@@ -164,7 +164,7 @@ namespace ChilledLeves.Ui
             }
             ImGui.AlignTextToFramePadding();
             ImGui.SameLine();
-            ImGui.Text("Sound Effect");
+            ImGui.Text("音效");
             if (PlaySound)
             {
                 ImGui.SameLine();
@@ -188,7 +188,7 @@ namespace ChilledLeves.Ui
                 }
             }
             ImGui.SameLine();
-            ImGui.Text($"Chat Notification");
+            ImGui.Text("聊天訊息通知");
 
             if (ImGui.Checkbox("###ShowAlertWindow", ref ShowWindow))
             {
@@ -199,18 +199,18 @@ namespace ChilledLeves.Ui
                 }
             }
             ImGui.SameLine();
-            ImGui.Text("Show Alert Window");
+            ImGui.Text("顯示通知視窗");
 
             ImGui.Spacing();
 
-            ImGui.Text("Leve Notification Amount");
+            ImGui.Text("理符額度通知門檻");
             ImGui.SameLine();
             ImGui.TextDisabled("(?)");
             if (ImGui.IsItemHovered())
             {
                 ImGui.BeginTooltip();
-                ImGui.Text("Amount that you want the notification to go off on.");
-                ImGui.Text("Will alert you when your current leves is at or above this amount.");
+                ImGui.Text("設定觸發通知的理符額度。");
+                ImGui.Text("目前理符額度達到或超過此數值時會通知。");
                 ImGui.EndTooltip();
             }
             if (ImGui.SliderInt("###LeveAmount", ref LeveNotificationAmount, 1, 100))
