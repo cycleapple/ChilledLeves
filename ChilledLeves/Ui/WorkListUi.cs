@@ -569,7 +569,7 @@ namespace ChilledLeves.Ui
                 // Start and Stop buttons 
                 using (ImRaii.Disabled(SchedulerMain.AreWeTicking))
                 {
-                    if (!HasPlugin("vnavmesh"))
+                    if (!P.navmesh.Ready)
                     {
                         // Check if button is clicked
                         if (ImGui.Button(buttonText, new Vector2(gatherBtnWidth / 2, navButtonHeight)))
@@ -592,7 +592,7 @@ namespace ChilledLeves.Ui
                             buttonText = "需要安裝 vnavmesh";
                         }
                     }
-                    else if (HasPlugin("vnavmesh"))
+                    else if (P.navmesh.Ready)
                     {
                         if (ImGui.Button("開始###Start", new Vector2(gatherBtnWidth / 2, navButtonHeight)))
                         {
@@ -654,7 +654,7 @@ namespace ChilledLeves.Ui
                 // Start and Stop buttons 
                 using (ImRaii.Disabled(SchedulerMain.AreWeTicking))
                 {
-                    if (!HasPlugin("vnavmesh"))
+                    if (!P.navmesh.Ready)
                     {
                         // Check if button is clicked
                         if (ImGui.Button(buttonText, new Vector2(gatherBtnWidth / 2, navButtonHeight)))
@@ -677,7 +677,7 @@ namespace ChilledLeves.Ui
                             buttonText = "需要安裝 vnavmesh";
                         }
                     }
-                    else if (HasPlugin("vnavmesh"))
+                    else if (P.navmesh.Ready)
                     {
                         if (ImGui.Button("開始###Start", new Vector2(gatherBtnWidth / 2, navButtonHeight)))
                         {
