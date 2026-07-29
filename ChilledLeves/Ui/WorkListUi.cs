@@ -536,7 +536,7 @@ namespace ChilledLeves.Ui
         #region UI Components and Drawing
 
         // Used for the navmesh button
-        private static string buttonText = "Need Navmesh Installed";
+        private static string buttonText = "需要安裝 vnavmesh";
         private static float lastClickTime = 0f;
         private const float resetDelay = 2.0f; // 2 seconds delay
 
@@ -575,7 +575,7 @@ namespace ChilledLeves.Ui
                         if (ImGui.Button(buttonText, new Vector2(gatherBtnWidth / 2, navButtonHeight)))
                         {
                             ImGui.SetClipboardText("https://puni.sh/api/repository/veyn");
-                            buttonText = "Copied to Clipboard";
+                            buttonText = "已複製到剪貼簿";
                             lastClickTime = (float)ImGui.GetTime(); // Store the current ImGui time
                         }
 
@@ -587,9 +587,9 @@ namespace ChilledLeves.Ui
                         }
 
                         // Check if the delay has passed and revert the text
-                        if (buttonText == "Copied to Clipboard" && (ImGui.GetTime() - lastClickTime) >= resetDelay)
+                        if (buttonText == "已複製到剪貼簿" && (ImGui.GetTime() - lastClickTime) >= resetDelay)
                         {
-                            buttonText = "Need Navmesh Installed";
+                            buttonText = "需要安裝 vnavmesh";
                         }
                     }
                     else if (HasPlugin("vnavmesh"))
@@ -660,7 +660,7 @@ namespace ChilledLeves.Ui
                         if (ImGui.Button(buttonText, new Vector2(gatherBtnWidth / 2, navButtonHeight)))
                         {
                             ImGui.SetClipboardText("https://puni.sh/api/repository/veyn");
-                            buttonText = "Copied to Clipboard";
+                            buttonText = "已複製到剪貼簿";
                             lastClickTime = (float)ImGui.GetTime(); // Store the current ImGui time
                         }
 
@@ -672,9 +672,9 @@ namespace ChilledLeves.Ui
                         }
 
                         // Check if the delay has passed and revert the text
-                        if (buttonText == "Copied to Clipboard" && (ImGui.GetTime() - lastClickTime) >= resetDelay)
+                        if (buttonText == "已複製到剪貼簿" && (ImGui.GetTime() - lastClickTime) >= resetDelay)
                         {
-                            buttonText = "Need Navmesh Installed";
+                            buttonText = "需要安裝 vnavmesh";
                         }
                     }
                     else if (HasPlugin("vnavmesh"))
