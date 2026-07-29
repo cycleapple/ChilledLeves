@@ -13,7 +13,7 @@ namespace ChilledLeves.Ui;
 internal class GatherModeUi : Window
 {
     public GatherModeUi() :
-        base($"Priority Leve Grind Window {P.GetType().Assembly.GetName().Version} ###GatherModeWorkshopWindow")
+        base($"優先理符執行 {P.GetType().Assembly.GetName().Version} ###GatherModeWorkshopWindow")
     {
         Flags = ImGuiWindowFlags.None;
         SizeConstraints = new()
@@ -65,6 +65,14 @@ internal class GatherModeUi : Window
     private static List<string> classSelectList = new List<string>() { LeveTypeDict[2].LeveClassType, LeveTypeDict[3].LeveClassType, LeveTypeDict[4].LeveClassType };
     private static List<string> RunUntilList = new List<string>() { "Lv.", "All Leves Complete", "Just Because" };
 
+    private static string RunUntilLabel(string value) => value switch
+    {
+        "Lv." => "等級",
+        "All Leves Complete" => "所有理符完成",
+        "Just Because" => "持續執行",
+        _ => value,
+    };
+
     private static void CenterTextV2(string text)
     {
         float columnWidth = ImGui.GetColumnWidth();
@@ -114,8 +122,8 @@ internal class GatherModeUi : Window
             
             float navButtonHeight = textLineHeight * 1.5f;
             float btnPadding = 8 * fontScale;
-            float mainBtnWidth = ImGui.CalcTextSize("Main Window").X + btnPadding * 2;
-            float worklistBtnWidth = ImGui.CalcTextSize("Worklist Window").X + btnPadding * 2;
+            float mainBtnWidth = ImGui.CalcTextSize("主視窗").X + btnPadding * 2;
+            float worklistBtnWidth = ImGui.CalcTextSize("工作清單").X + btnPadding * 2;
             
             // Left-aligned buttons
             ImGui.BeginGroup();
@@ -153,14 +161,14 @@ internal class GatherModeUi : Window
             
             // Left-aligned buttons
             ImGui.BeginGroup();
-            if (ImGui.Button("Main Window", new Vector2(mainBtnWidth, navButtonHeight)))
+            if (ImGui.Button("主視窗", new Vector2(mainBtnWidth, navButtonHeight)))
             {
                 P.mainWindow.IsOpen = true;
             }
             
             ImGui.SameLine();
             
-            if (ImGui.Button("Worklist Window", new Vector2(worklistBtnWidth, navButtonHeight)))
+            if (ImGui.Button("工作清單", new Vector2(worklistBtnWidth, navButtonHeight)))
             {
                 P.workListUi.IsOpen = true;
             }
@@ -445,7 +453,7 @@ internal class GatherModeUi : Window
         }
         else
         {
-            if (ImGui.Button("Open NPC Selection"))
+            if (ImGui.Button("開啟 NPC 選擇"))
             {
                 ImGui.OpenPopup("NPC Selection Popup"); // Open the popup when the selectable is clicked
             }
@@ -474,9 +482,9 @@ internal class GatherModeUi : Window
                     if (ImGui.BeginTable("NPC Table", 3, ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg))
                     {
                         // Define column widths
-                        ImGui.TableSetupColumn("NPC Name", ImGuiTableColumnFlags.WidthFixed, 200);
-                        ImGui.TableSetupColumn("Level", ImGuiTableColumnFlags.WidthFixed, 50);
-                        ImGui.TableSetupColumn("Location", ImGuiTableColumnFlags.WidthFixed, 200);
+                        ImGui.TableSetupColumn("NPC 名稱", ImGuiTableColumnFlags.WidthFixed, 200);
+                        ImGui.TableSetupColumn("等級", ImGuiTableColumnFlags.WidthFixed, 50);
+                        ImGui.TableSetupColumn("地點", ImGuiTableColumnFlags.WidthFixed, 200);
                         ImGui.TableHeadersRow();
                         
                         // Loop through each NPC ID and display their name and location in the table
@@ -551,9 +559,9 @@ internal class GatherModeUi : Window
                 if (ImGui.BeginTable("NPC Table", 3, ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg))
                 {
                     // Define column widths
-                    ImGui.TableSetupColumn("NPC Name", ImGuiTableColumnFlags.WidthFixed, 200);
-                    ImGui.TableSetupColumn("Level", ImGuiTableColumnFlags.WidthFixed, 50);
-                    ImGui.TableSetupColumn("Location", ImGuiTableColumnFlags.WidthFixed, 200);
+                    ImGui.TableSetupColumn("NPC 名稱", ImGuiTableColumnFlags.WidthFixed, 200);
+                    ImGui.TableSetupColumn("等級", ImGuiTableColumnFlags.WidthFixed, 50);
+                    ImGui.TableSetupColumn("地點", ImGuiTableColumnFlags.WidthFixed, 200);
                     ImGui.TableHeadersRow();
     
                     // Loop through each NPC ID and display their name and location in the table
@@ -721,7 +729,7 @@ internal class GatherModeUi : Window
         float runUntilComboWidth = 0f;
         foreach (string runUntil in RunUntilList)
         {
-            float textWidth = ImGui.CalcTextSize(runUntil).X;
+            float textWidth = ImGui.CalcTextSize(RunUntilLabel(runUntil)).X;
             if (textWidth > runUntilComboWidth)
             {
                 runUntilComboWidth = textWidth;
@@ -745,12 +753,12 @@ internal class GatherModeUi : Window
                                .PushColor(ImGuiCol.FrameBgActive, ThemeHelper.FrameBgActive)
                                .PushColor(ImGuiCol.CheckMark, ThemeHelper.IceBlue);
                     
-                    if (ImGui.BeginCombo("###Run Until Combo", C.RunUntilSelected))
+                    if (ImGui.BeginCombo("###Run Until Combo", RunUntilLabel(C.RunUntilSelected)))
                     {
                         foreach (var selected in RunUntilList)
                         {
                             bool isSelected = (C.RunUntilSelected == selected);
-                            if (ImGui.Selectable(selected, isSelected))
+                            if (ImGui.Selectable($"{RunUntilLabel(selected)}###{selected}", isSelected))
                             {
                                 C.RunUntilSelected = selected;
                                 C.Save();
@@ -764,12 +772,12 @@ internal class GatherModeUi : Window
             }
             else
             {
-                if (ImGui.BeginCombo("###Run Until Combo", C.RunUntilSelected))
+                if (ImGui.BeginCombo("###Run Until Combo", RunUntilLabel(C.RunUntilSelected)))
                 {
                     foreach (var selected in RunUntilList)
                     {
                         bool isSelected = (C.RunUntilSelected == selected);
-                        if (ImGui.Selectable(selected, isSelected))
+                        if (ImGui.Selectable($"{RunUntilLabel(selected)}###{selected}", isSelected))
                         {
                             C.RunUntilSelected = selected;
                             C.Save();

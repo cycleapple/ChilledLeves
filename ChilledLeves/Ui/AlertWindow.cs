@@ -9,7 +9,7 @@ namespace ChilledLeves.Ui
 {
     internal class AlertWindow : Window
     {
-        public AlertWindow() : base("Notification Alert | Chilled Leves ###ChilledLevesNotifPopup", ImGuiWindowFlags.AlwaysAutoResize)
+        public AlertWindow() : base("理符限額提醒｜Chilled Leves ###ChilledLevesNotifPopup", ImGuiWindowFlags.AlwaysAutoResize)
         {
             P.windowSystem.AddWindow(this);
         }
@@ -21,11 +21,11 @@ namespace ChilledLeves.Ui
 
         public override void Draw()
         {
-            ImGui.Text($"HEY! You've hit the threshold for the alert on this character for leves! \n" +
-                       $"This is just a nice little pop-up saying \" Hey, you should really turn these in before you cap out\"");
+            ImGui.Text($"此角色的理符受理限額已達提醒門檻！\n" +
+                       $"請在達到上限前使用理符受理限額。");
             ImGui.Dummy(new Vector2(0, 5));
-            ImGui.Text($"Current Leve Amount: {Utils.Allowances} / 100");
-            if (ImGui.Button($"Hide Popup"))
+            ImGui.Text($"目前理符受理限額：{Utils.Allowances} / 100");
+            if (ImGui.Button($"關閉提醒"))
             {
                 SoundAlert.refreshOverlay = false;
                 P.alertUi.IsOpen = false;
