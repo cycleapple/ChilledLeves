@@ -582,7 +582,7 @@ namespace ChilledLeves.Ui
                         if (ImGui.IsItemHovered())
                         {
                             ImGui.BeginTooltip();
-                            ImGui.Text("Press the button to copy the repo to your clipboard");
+                            ImGui.Text("按下按鈕將插件倉庫網址複製到剪貼簿");
                             ImGui.EndTooltip();
                         }
 
@@ -594,7 +594,7 @@ namespace ChilledLeves.Ui
                     }
                     else if (HasPlugin("vnavmesh"))
                     {
-                        if (ImGui.Button("Start", new Vector2(gatherBtnWidth / 2, navButtonHeight)))
+                        if (ImGui.Button("開始###Start", new Vector2(gatherBtnWidth / 2, navButtonHeight)))
                         {
                             SchedulerMain.WorkListMode = true;
                             SchedulerMain.EnablePlugin();
@@ -604,20 +604,20 @@ namespace ChilledLeves.Ui
                 ImGui.SameLine();
                 using (ImRaii.Disabled(!SchedulerMain.AreWeTicking))
                 {
-                    if (ImGui.Button("Stop", new Vector2(gatherBtnWidth / 2, navButtonHeight)))
+                    if (ImGui.Button("停止###Stop", new Vector2(gatherBtnWidth / 2, navButtonHeight)))
                     {
                         SchedulerMain.DisablePlugin();
                     }
                 }
 
-                if (ImGui.Button("Main Window", new Vector2(mainBtnWidth, navButtonHeight)))
+                if (ImGui.Button("主視窗###Main Window", new Vector2(mainBtnWidth, navButtonHeight)))
                 {
                     P.mainWindow.IsOpen = true;
                 }
                 
                 ImGui.SameLine();
                 
-                if (ImGui.Button("Priority Leve Grind Window", new Vector2(gatherBtnWidth, navButtonHeight)))
+                if (ImGui.Button("優先理符執行###Priority Leve Grind Window", new Vector2(gatherBtnWidth, navButtonHeight)))
                 {
                     P.gatherModeUi.IsOpen = true;
                 }
@@ -626,7 +626,7 @@ namespace ChilledLeves.Ui
                 
                 // Right-aligned allowances info
                 float windowWidth = ImGui.GetWindowWidth();
-                string allowancesInfo = $"Allowances: {Allowances}/100 | Next in: {NextAllowances:hh\\:mm\\:ss}";
+                string allowancesInfo = $"理符額度：{Allowances}/100｜下次恢復：{NextAllowances:hh\\:mm\\:ss}";
                 float infoWidth = ImGui.CalcTextSize(allowancesInfo).X;
                 
                 // Increased padding to prevent text from being cut off
@@ -667,7 +667,7 @@ namespace ChilledLeves.Ui
                         if (ImGui.IsItemHovered())
                         {
                             ImGui.BeginTooltip();
-                            ImGui.Text("Press the button to copy the repo to your clipboard");
+                            ImGui.Text("按下按鈕將插件倉庫網址複製到剪貼簿");
                             ImGui.EndTooltip();
                         }
 
@@ -679,7 +679,7 @@ namespace ChilledLeves.Ui
                     }
                     else if (HasPlugin("vnavmesh"))
                     {
-                        if (ImGui.Button("Start", new Vector2(gatherBtnWidth / 2, navButtonHeight)))
+                        if (ImGui.Button("開始###Start", new Vector2(gatherBtnWidth / 2, navButtonHeight)))
                         {
                             SchedulerMain.WorkListMode = true;
                             SchedulerMain.EnablePlugin();
@@ -689,19 +689,19 @@ namespace ChilledLeves.Ui
                 ImGui.SameLine();
                 using (ImRaii.Disabled(!SchedulerMain.AreWeTicking))
                 {
-                    if (ImGui.Button("Stop", new Vector2(gatherBtnWidth / 2, navButtonHeight)))
+                    if (ImGui.Button("停止###Stop", new Vector2(gatherBtnWidth / 2, navButtonHeight)))
                     {
                         SchedulerMain.DisablePlugin();
                     }
                 }
-                if (ImGui.Button("Main Window", new Vector2(mainBtnWidth, navButtonHeight)))
+                if (ImGui.Button("主視窗###Main Window", new Vector2(mainBtnWidth, navButtonHeight)))
                 {
                     P.mainWindow.IsOpen = true;
                 }
                 
                 ImGui.SameLine();
                 
-                if (ImGui.Button("Priority Leve Grind Window", new Vector2(gatherBtnWidth, navButtonHeight)))
+                if (ImGui.Button("優先理符執行###Priority Leve Grind Window", new Vector2(gatherBtnWidth, navButtonHeight)))
                 {
                     P.gatherModeUi.IsOpen = true;
                 }
@@ -710,7 +710,7 @@ namespace ChilledLeves.Ui
                 
                 // Right-aligned allowances info
                 float windowWidth = ImGui.GetWindowWidth();
-                string allowancesInfo = $"Allowances: {Allowances}/100 | Next in: {NextAllowances:hh\\:mm\\:ss}";
+                string allowancesInfo = $"理符額度：{Allowances}/100｜下次恢復：{NextAllowances:hh\\:mm\\:ss}";
                 float infoWidth = ImGui.CalcTextSize(allowancesInfo).X;
                 
                 // Increased padding to prevent text from being cut off
@@ -723,7 +723,7 @@ namespace ChilledLeves.Ui
             ImGui.Separator();
             ImGui.Spacing();
             
-            ImGui.Text($"Amount of Accepted Leves: {GetNumAcceptedLeveQuests()}");
+            ImGui.Text($"已接受的理符數量：{GetNumAcceptedLeveQuests()}");
 
             #endregion
 
@@ -740,7 +740,7 @@ namespace ChilledLeves.Ui
             }
             
             ImGui.SameLine();
-            ImGui.Text("Keep list after completion?");
+            ImGui.Text("完成後保留清單？");
             
             if (usingIceTheme)
             {
@@ -754,7 +754,7 @@ namespace ChilledLeves.Ui
             }
             
             ImGui.SameLine();
-            ImGui.Text("Increase delay between leves");
+            ImGui.Text("增加接受各理符之間的延遲");
             
             if (usingIceTheme)
             {
@@ -768,7 +768,7 @@ namespace ChilledLeves.Ui
             }
             
             ImGui.SameLine();
-            ImGui.Text("Grab multiple leve's from vendor");
+            ImGui.Text("一次從理符發行人接受多個理符");
 
             if (usingIceTheme)
             {
@@ -782,7 +782,7 @@ namespace ChilledLeves.Ui
             }
 
             ImGui.SameLine();
-            ImGui.Text("Repeat Last Leve");
+            ImGui.Text("重複上一個理符");
 
             // Create a row of buttons for different actions
             float buttonSpacing = 10 * fontScale;
@@ -790,22 +790,22 @@ namespace ChilledLeves.Ui
             float buttonHeight = textLineHeight * 1.5f;
 
             // Artisan export button
-            string artisanPreCraft = "Artisan Pre-Crafts";
+            string artisanPreCraft = "匯出 Artisan 預製作";
             var artisanPCbuttonSize = ImGui.CalcTextSize(artisanPreCraft);
             float artisanPCBtnWidth = artisanPCbuttonSize.X + ImGui.GetStyle().FramePadding.X * 2 * fontScale;
 
             // Artisan export button
-            string artisanFinal = "Artisan Final Items";
+            string artisanFinal = "匯出 Artisan 最終成品";
             var buttonSize = ImGui.CalcTextSize(artisanFinal);
             float artisanFinalBtnWidth = buttonSize.X + ImGui.GetStyle().FramePadding.X * 2 * fontScale;
 
             // Teamcraft List button
-            string teamcraftList = "Teamcraft Link";
+            string teamcraftList = "Teamcraft 連結";
             var tcbuttonSize = ImGui.CalcTextSize(teamcraftList);
             float tcBtnWidth = tcbuttonSize.X + ImGui.GetStyle().FramePadding.X * 2 * fontScale;
 
             // Import/Export button
-            string importExport = "Import/Export Worklists";
+            string importExport = "匯入／匯出工作清單";
             var ieBtnSize = ImGui.CalcTextSize(importExport);
             float ieBtnWidth = ieBtnSize.X + ImGui.GetStyle().FramePadding.X * 2 * fontScale;
             
@@ -829,8 +829,8 @@ namespace ChilledLeves.Ui
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.BeginTooltip();
-                    ImGui.Text("Exports the items you need as a \"Pre-craft Items\" list. \n" +
-                               "Does not include Final Items");
+                    ImGui.Text("將所需物品匯出為「預製作物品」清單。\n" +
+                               "不包含最終成品");
                     ImGui.EndTooltip();
                 }
 
@@ -844,8 +844,8 @@ namespace ChilledLeves.Ui
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.BeginTooltip();
-                    ImGui.Text("Exports the items you need as a \"Final Items\" list. \n" +
-                               "Does not include Pre-Crafts");
+                    ImGui.Text("將所需物品匯出為「最終成品」清單。\n" +
+                               "不包含預製作物品");
                     ImGui.EndTooltip();
                 }
 
@@ -858,7 +858,7 @@ namespace ChilledLeves.Ui
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.BeginTooltip();
-                    ImGui.Text("Copy Teamcraft Link");
+                    ImGui.Text("複製 Teamcraft 連結");
                     ImGui.EndTooltip();
                 }
 
@@ -901,7 +901,7 @@ namespace ChilledLeves.Ui
             if (ImGui.IsItemHovered())
             {
                 ImGui.BeginTooltip();
-                ImGui.Text("Save and load worklists from JSON files");
+                ImGui.Text("使用 JSON 檔案儲存及載入工作清單");
                 ImGui.EndTooltip();
             }
             
@@ -920,21 +920,21 @@ namespace ChilledLeves.Ui
                     if (ImGui.BeginTabBar("ImportExportTabs", ImGuiTabBarFlags.None))
                     {
                         // Save tab
-                        if (ImGui.BeginTabItem("Active Worklist"))
+                        if (ImGui.BeginTabItem("目前工作清單###Active Worklist"))
                         {
                             DrawSaveWorklistSection(currentInstance, textLineHeight, usingIceTheme);
                             ImGui.EndTabItem();
                         }
                         
                         // Load tab
-                        if (ImGui.BeginTabItem("Saved Worklists"))
+                        if (ImGui.BeginTabItem("已儲存清單###Saved Worklists"))
                         {
                             DrawSavedWorklistsSection(currentInstance, textLineHeight, usingIceTheme);
                             ImGui.EndTabItem();
                         }
                         
                         // Import tab
-                        if (ImGui.BeginTabItem("Import"))
+                        if (ImGui.BeginTabItem("匯入###Import"))
                         {
                             DrawImportSection(currentInstance, textLineHeight, usingIceTheme);
                             ImGui.EndTabItem();
@@ -950,21 +950,21 @@ namespace ChilledLeves.Ui
                     if (ImGui.BeginTabBar("ImportExportTabs", ImGuiTabBarFlags.None))
                     {
                         // Save tab
-                        if (ImGui.BeginTabItem("Active Worklist"))
+                        if (ImGui.BeginTabItem("目前工作清單###Active Worklist"))
                         {
                             DrawSaveWorklistSection(currentInstance, textLineHeight, usingIceTheme);
                             ImGui.EndTabItem();
                         }
                         
                         // Load tab
-                        if (ImGui.BeginTabItem("Saved Worklists"))
+                        if (ImGui.BeginTabItem("已儲存清單###Saved Worklists"))
                         {
                             DrawSavedWorklistsSection(currentInstance, textLineHeight, usingIceTheme);
                             ImGui.EndTabItem();
                         }
                         
                         // Import tab
-                        if (ImGui.BeginTabItem("Import"))
+                        if (ImGui.BeginTabItem("匯入###Import"))
                         {
                             DrawImportSection(currentInstance, textLineHeight, usingIceTheme);
                             ImGui.EndTabItem();
@@ -984,11 +984,11 @@ namespace ChilledLeves.Ui
             {
                 currentInstance._importConfirmationOpen = importConfirmOpen;
                 
-                ImGui.Text("This will replace your current worklist. Are you sure?");
+                ImGui.Text("這將取代目前的工作清單，確定要繼續嗎？");
                 if (currentInstance._worklistToImport != null)
                 {
                     ImGui.TextColored(new Vector4(0.9f, 0.9f, 0.3f, 1.0f), 
-                        $"Importing: {currentInstance._worklistToImport.Name} ({currentInstance._worklistToImport.Entries.Count} items)");
+                        $"準備匯入：{currentInstance._worklistToImport.Name}（{currentInstance._worklistToImport.Entries.Count} 個項目）");
                 }
                 ImGui.Separator();
                 
@@ -1002,7 +1002,7 @@ namespace ChilledLeves.Ui
                     int btnPopupStyleCount = ThemeHelper.PushButtonStyle();
                     ImGui.PushStyleVar(ImGuiStyleVar.FrameRounding, 4.0f);
                     
-                    if (ImGui.Button("Cancel", new Vector2(buttonWidth, 0)))
+                    if (ImGui.Button("取消###Cancel", new Vector2(buttonWidth, 0)))
                     {
                         currentInstance._worklistToImport = null;
                         currentInstance._importConfirmationOpen = false;
@@ -1011,7 +1011,7 @@ namespace ChilledLeves.Ui
                     
                     ImGui.SameLine();
                     
-                    if (ImGui.Button("Import", new Vector2(buttonWidth, 0)))
+                    if (ImGui.Button("匯入###Import", new Vector2(buttonWidth, 0)))
                     {
                         if (currentInstance._worklistToImport != null)
                         {
@@ -1027,7 +1027,7 @@ namespace ChilledLeves.Ui
                 }
                 else
                 {
-                    if (ImGui.Button("Cancel", new Vector2(buttonWidth, 0)))
+                    if (ImGui.Button("取消###Cancel", new Vector2(buttonWidth, 0)))
                     {
                         currentInstance._worklistToImport = null;
                         currentInstance._importConfirmationOpen = false;
@@ -1036,7 +1036,7 @@ namespace ChilledLeves.Ui
                     
                     ImGui.SameLine();
                     
-                    if (ImGui.Button("Import", new Vector2(buttonWidth, 0)))
+                    if (ImGui.Button("匯入###Import", new Vector2(buttonWidth, 0)))
                     {
                         if (currentInstance._worklistToImport != null)
                         {
@@ -1062,11 +1062,11 @@ namespace ChilledLeves.Ui
             {
                 currentInstance._clipboardImportConfirmationOpen = clipboardImportConfirmOpen;
                 
-                ImGui.Text("This will replace your current worklist with data from clipboard. Continue?");
+                ImGui.Text("這將以剪貼簿中的資料取代目前工作清單，要繼續嗎？");
                 if (currentInstance._clipboardWorklist != null)
                 {
                     ImGui.TextColored(new Vector4(0.9f, 0.9f, 0.3f, 1.0f),
-                        $"Importing: {currentInstance._clipboardWorklist.Name} ({currentInstance._clipboardWorklist.Entries.Count} items)");
+                        $"準備匯入：{currentInstance._clipboardWorklist.Name}（{currentInstance._clipboardWorklist.Entries.Count} 個項目）");
                 }
                 ImGui.Separator();
 
@@ -1080,7 +1080,7 @@ namespace ChilledLeves.Ui
                     int btnPopupStyleCount = ThemeHelper.PushButtonStyle();
                     ImGui.PushStyleVar(ImGuiStyleVar.FrameRounding, 4.0f);
 
-                    if (ImGui.Button("Cancel", new Vector2(buttonWidth, 0)))
+                    if (ImGui.Button("取消###Cancel", new Vector2(buttonWidth, 0)))
                     {
                         currentInstance._clipboardWorklist = null;
                         currentInstance._clipboardImportConfirmationOpen = false;
@@ -1089,7 +1089,7 @@ namespace ChilledLeves.Ui
 
                     ImGui.SameLine();
 
-                    if (ImGui.Button("Import", new Vector2(buttonWidth, 0)))
+                    if (ImGui.Button("匯入###Import", new Vector2(buttonWidth, 0)))
                     {
                         if (currentInstance._clipboardWorklist != null)
                         {
@@ -1104,7 +1104,7 @@ namespace ChilledLeves.Ui
                 }
                 else
                 {
-                    if (ImGui.Button("Cancel", new Vector2(buttonWidth, 0)))
+                    if (ImGui.Button("取消###Cancel", new Vector2(buttonWidth, 0)))
                     {
                         currentInstance._clipboardWorklist = null;
                         currentInstance._clipboardImportConfirmationOpen = false;
@@ -1113,7 +1113,7 @@ namespace ChilledLeves.Ui
 
                     ImGui.SameLine();
 
-                    if (ImGui.Button("Import", new Vector2(buttonWidth, 0)))
+                    if (ImGui.Button("匯入###Import", new Vector2(buttonWidth, 0)))
                     {
                         if (currentInstance._clipboardWorklist != null)
                         {
@@ -1157,13 +1157,13 @@ namespace ChilledLeves.Ui
 
             if (ImGui.BeginTable($"Workshop List", 7, ImGuiTableFlags.RowBg | ImGuiTableFlags.Borders | ImGuiTableFlags.Reorderable))
             {
-                ImGui.TableSetupColumn("Level###CrafterLevels", ImGuiTableColumnFlags.WidthFixed, col0Width);
-                ImGui.TableSetupColumn("Leve Name###CrafterLeveNames", ImGuiTableColumnFlags.WidthFixed, col1Width);
-                ImGui.TableSetupColumn("Run Amount###CrafterRunAmounts", ImGuiTableColumnFlags.WidthFixed, col2Width);
-                ImGui.TableSetupColumn("Item Turnin###CrafterTurninItems", ImGuiTableColumnFlags.WidthFixed, col3Width);
-                ImGui.TableSetupColumn("Need###CrafterAmountNecessary", ImGuiTableColumnFlags.WidthFixed, col4Width);
-                    ImGui.TableSetupColumn("Have###CrafterCompleteCheck", ImGuiTableColumnFlags.WidthFixed, col5Width);
-                    ImGui.TableSetupColumn("Remove###CrafterLevesRemoveWorkList", ImGuiTableColumnFlags.WidthFixed, col6Width);
+                ImGui.TableSetupColumn("等級###CrafterLevels", ImGuiTableColumnFlags.WidthFixed, col0Width);
+                ImGui.TableSetupColumn("理符名稱###CrafterLeveNames", ImGuiTableColumnFlags.WidthFixed, col1Width);
+                ImGui.TableSetupColumn("執行次數###CrafterRunAmounts", ImGuiTableColumnFlags.WidthFixed, col2Width);
+                ImGui.TableSetupColumn("繳交物品###CrafterTurninItems", ImGuiTableColumnFlags.WidthFixed, col3Width);
+                ImGui.TableSetupColumn("需要###CrafterAmountNecessary", ImGuiTableColumnFlags.WidthFixed, col4Width);
+                    ImGui.TableSetupColumn("持有###CrafterCompleteCheck", ImGuiTableColumnFlags.WidthFixed, col5Width);
+                    ImGui.TableSetupColumn("移除###CrafterLevesRemoveWorkList", ImGuiTableColumnFlags.WidthFixed, col6Width);
 
                 ImGui.TableHeadersRow();
 
@@ -1180,13 +1180,13 @@ namespace ChilledLeves.Ui
             {
                 if (ImGui.BeginTable($"Workshop List", 7, ImGuiTableFlags.RowBg | ImGuiTableFlags.Borders | ImGuiTableFlags.Reorderable))
                 {
-                    ImGui.TableSetupColumn("Level###CrafterLevels", ImGuiTableColumnFlags.WidthFixed, col0Width);
-                    ImGui.TableSetupColumn("Leve Name###CrafterLeveNames", ImGuiTableColumnFlags.WidthFixed, col1Width);
-                    ImGui.TableSetupColumn("Run Amount###CrafterRunAmounts", ImGuiTableColumnFlags.WidthFixed, col2Width);
-                    ImGui.TableSetupColumn("Item Turnin###CrafterTurninItems", ImGuiTableColumnFlags.WidthFixed, col3Width);
-                    ImGui.TableSetupColumn("Need###CrafterAmountNecessary", ImGuiTableColumnFlags.WidthFixed, col4Width);
-                    ImGui.TableSetupColumn("Have###CrafterCompleteCheck", ImGuiTableColumnFlags.WidthFixed, col5Width);
-                    ImGui.TableSetupColumn("Remove###CrafterLevesRemoveWorkList", ImGuiTableColumnFlags.WidthFixed, col6Width);
+                    ImGui.TableSetupColumn("等級###CrafterLevels", ImGuiTableColumnFlags.WidthFixed, col0Width);
+                    ImGui.TableSetupColumn("理符名稱###CrafterLeveNames", ImGuiTableColumnFlags.WidthFixed, col1Width);
+                    ImGui.TableSetupColumn("執行次數###CrafterRunAmounts", ImGuiTableColumnFlags.WidthFixed, col2Width);
+                    ImGui.TableSetupColumn("繳交物品###CrafterTurninItems", ImGuiTableColumnFlags.WidthFixed, col3Width);
+                    ImGui.TableSetupColumn("需要###CrafterAmountNecessary", ImGuiTableColumnFlags.WidthFixed, col4Width);
+                    ImGui.TableSetupColumn("持有###CrafterCompleteCheck", ImGuiTableColumnFlags.WidthFixed, col5Width);
+                    ImGui.TableSetupColumn("移除###CrafterLevesRemoveWorkList", ImGuiTableColumnFlags.WidthFixed, col6Width);
                     
                     ImGui.TableHeadersRow();
                     
@@ -1289,7 +1289,7 @@ namespace ChilledLeves.Ui
                     if (ImGui.IsItemHovered())
                     {
                         ImGui.BeginTooltip();
-                        ImGui.Text("Left click to copy item to clipboard");
+                        ImGui.Text("按滑鼠左鍵將物品名稱複製到剪貼簿");
                         ImGui.EndTooltip();
                     }
 
@@ -1309,7 +1309,7 @@ namespace ChilledLeves.Ui
                     if (ImGui.IsItemHovered())
                     {
                         ImGui.BeginTooltip();
-                        ImGui.Text($"Have: {haveAmount}");
+                        ImGui.Text($"持有：{haveAmount}");
                         ImGui.EndTooltip();
                     }
                 }
@@ -1427,7 +1427,7 @@ namespace ChilledLeves.Ui
                     ImGui.PushStyleColor(ImGuiCol.ButtonHovered, new Vector4(0.25f, 0.6f, 0.8f, 0.9f));
                     ImGui.PushStyleColor(ImGuiCol.ButtonActive, new Vector4(0.3f, 0.7f, 0.9f, 1.0f));
 
-                    if (ImGui.Button("Import", new Vector2(buttonWidth, textLineHeight * 1.2f)))
+                    if (ImGui.Button("匯入###Import", new Vector2(buttonWidth, textLineHeight * 1.2f)))
                     {
                         currentInstance.selectedWorklistIndex = originalIndex;
                         currentInstance.ImportWorklist(worklist);
@@ -1444,7 +1444,7 @@ namespace ChilledLeves.Ui
                     ImGui.PushStyleColor(ImGuiCol.ButtonHovered, new Vector4(0.8f, 0.2f, 0.2f, 0.9f));
                     ImGui.PushStyleColor(ImGuiCol.ButtonActive, new Vector4(0.9f, 0.3f, 0.3f, 1.0f));
 
-                    if (ImGui.Button("Delete", new Vector2(buttonWidth, textLineHeight * 1.2f)))
+                    if (ImGui.Button("刪除###Delete", new Vector2(buttonWidth, textLineHeight * 1.2f)))
                     {
                         currentInstance.DeleteWorklist(originalIndex);
                     }
@@ -1458,7 +1458,7 @@ namespace ChilledLeves.Ui
                     ImGui.PushStyleColor(ImGuiCol.ButtonHovered, new Vector4(0.25f, 0.6f, 0.8f, 0.9f));
                     ImGui.PushStyleColor(ImGuiCol.ButtonActive, new Vector4(0.3f, 0.7f, 0.9f, 1.0f));
 
-                    if (ImGui.Button("Import", new Vector2(buttonWidth, textLineHeight * 1.2f)))
+                    if (ImGui.Button("匯入###Import", new Vector2(buttonWidth, textLineHeight * 1.2f)))
                     {
                         currentInstance.selectedWorklistIndex = originalIndex;
                         currentInstance.ImportWorklist(worklist);
@@ -1472,7 +1472,7 @@ namespace ChilledLeves.Ui
                     ImGui.PushStyleColor(ImGuiCol.ButtonHovered, new Vector4(0.8f, 0.2f, 0.2f, 0.9f));
                     ImGui.PushStyleColor(ImGuiCol.ButtonActive, new Vector4(0.9f, 0.3f, 0.3f, 1.0f));
 
-                    if (ImGui.Button("Delete", new Vector2(buttonWidth, textLineHeight * 1.2f)))
+                    if (ImGui.Button("刪除###Delete", new Vector2(buttonWidth, textLineHeight * 1.2f)))
                     {
                         currentInstance.DeleteWorklist(originalIndex);
                     }
@@ -1492,11 +1492,11 @@ namespace ChilledLeves.Ui
                 int textStyleCount = ThemeHelper.PushHeadingTextStyle();
                 if (currentInstance._isNewList)
                 {
-                    ImGui.Text("Active Worklist");
+                    ImGui.Text("目前工作清單");
                 }
                 else
                 {
-                    ImGui.Text("Edit Current Worklist");
+                    ImGui.Text("編輯目前工作清單");
                 }
                 ImGui.PopStyleColor(textStyleCount);
             }
@@ -1504,11 +1504,11 @@ namespace ChilledLeves.Ui
             {
                 if (currentInstance._isNewList)
                 {
-                    ImGui.Text("Active Worklist");
+                    ImGui.Text("目前工作清單");
                 }
                 else
                 {
-                    ImGui.Text("Edit Current Worklist");
+                    ImGui.Text("編輯目前工作清單");
                 }
             }
             
@@ -1519,12 +1519,12 @@ namespace ChilledLeves.Ui
             if (!currentInstance._isNewList && !string.IsNullOrEmpty(currentInstance._currentWorklistFile))
             {
                 ImGui.TextColored(new Vector4(0.9f, 0.7f, 0.2f, 1.0f), 
-                    $"Using worklist: {currentInstance.exportWorklistName}");
+                    $"使用中的工作清單：{currentInstance.exportWorklistName}");
                 ImGui.Spacing();
             }
             
             ImGui.AlignTextToFramePadding();
-            ImGui.Text("Worklist Name:");
+            ImGui.Text("工作清單名稱：");
             ImGui.SameLine();
             
             float inputWidth = ImGui.GetContentRegionAvail().X;
@@ -1550,7 +1550,7 @@ namespace ChilledLeves.Ui
             if (!currentInstance._isNewList)
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Clear", new Vector2(50, 0)))
+                if (ImGui.Button("清除###Clear", new Vector2(50, 0)))
                 {
                     currentInstance._isNewList = true;
                     currentInstance._currentWorklistFile = string.Empty;
@@ -1560,7 +1560,7 @@ namespace ChilledLeves.Ui
                 if (ImGui.IsItemHovered())
                 {
                     ImGui.BeginTooltip();
-                    ImGui.Text("Clear current worklist and start a new one");
+                    ImGui.Text("清除目前工作清單並建立新清單");
                     ImGui.EndTooltip();
                 }
             }
@@ -1568,7 +1568,7 @@ namespace ChilledLeves.Ui
             ImGui.Spacing();
             
             bool canExport = !string.IsNullOrWhiteSpace(currentInstance.exportWorklistName) && C.workList.Count > 0;
-            string buttonLabel = currentInstance._isNewList ? "Save New Worklist" : "Save Changes";
+            string buttonLabel = currentInstance._isNewList ? "儲存新工作清單###Save New Worklist" : "儲存變更###Save Changes";
             
             float buttonWidth = Math.Min(ImGui.GetContentRegionAvail().X * 0.7f, 250);
             float buttonHeight = textLineHeight * 1.2f;
@@ -1608,11 +1608,11 @@ namespace ChilledLeves.Ui
                 ImGui.BeginTooltip();
                 if (C.workList.Count == 0)
                 {
-                    ImGui.Text("Worklist is empty. Add items before saving.");
+                    ImGui.Text("工作清單是空的，請先加入項目再儲存。");
                 }
                 else
                 {
-                    ImGui.Text("Enter a name for the worklist to save");
+                    ImGui.Text("請輸入要儲存的工作清單名稱");
                 }
                 ImGui.EndTooltip();
             }
@@ -1629,7 +1629,7 @@ namespace ChilledLeves.Ui
                     int btnNewListStyleCount = ThemeHelper.PushButtonStyle();
                     ImGui.PushStyleVar(ImGuiStyleVar.FrameRounding, 4.0f);
                     
-                    if (ImGui.Button("Create New List", new Vector2(buttonWidth, buttonHeight)))
+                    if (ImGui.Button("建立新清單###Create New List", new Vector2(buttonWidth, buttonHeight)))
                     {
                         currentInstance._isNewList = true;
                         currentInstance._currentWorklistFile = string.Empty;
@@ -1641,7 +1641,7 @@ namespace ChilledLeves.Ui
                 }
                 else
                 {
-                    if (ImGui.Button("Create New List", new Vector2(buttonWidth, buttonHeight)))
+                    if (ImGui.Button("建立新清單###Create New List", new Vector2(buttonWidth, buttonHeight)))
                     {
                         currentInstance._isNewList = true;
                         currentInstance._currentWorklistFile = string.Empty;
@@ -1657,18 +1657,18 @@ namespace ChilledLeves.Ui
             if (usingIceTheme)
             {
                 int textStyleCount = ThemeHelper.PushHeadingTextStyle();
-                ImGui.Text("Import Worklist from Clipboard");
+                ImGui.Text("從剪貼簿匯入工作清單");
                 ImGui.PopStyleColor(textStyleCount);
             }
             else
             {
-                ImGui.Text("Import Worklist from Clipboard");
+                ImGui.Text("從剪貼簿匯入工作清單");
             }
             
             ImGui.Separator();
             ImGui.Spacing();
             
-            ImGui.TextWrapped("Copy a worklist in JSON format to your clipboard, then click the button below to import it.");
+            ImGui.TextWrapped("將 JSON 格式的工作清單複製到剪貼簿，再點擊下方按鈕匯入。");
             ImGui.Spacing();
             
             float buttonWidth = Math.Min(ImGui.GetContentRegionAvail().X * 0.7f, 250);
@@ -1682,7 +1682,7 @@ namespace ChilledLeves.Ui
                 int btnClipboardStyleCount = ThemeHelper.PushButtonStyle();
                 ImGui.PushStyleVar(ImGuiStyleVar.FrameRounding, 4.0f);
                 
-                if (ImGui.Button("Import from Clipboard", new Vector2(buttonWidth, buttonHeight)))
+                if (ImGui.Button("從剪貼簿匯入###Import from Clipboard", new Vector2(buttonWidth, buttonHeight)))
                 {
                     currentInstance.ImportFromClipboard();
                 }
@@ -1692,7 +1692,7 @@ namespace ChilledLeves.Ui
             }
             else
             {
-                if (ImGui.Button("Import from Clipboard", new Vector2(buttonWidth, buttonHeight)))
+                if (ImGui.Button("從剪貼簿匯入###Import from Clipboard", new Vector2(buttonWidth, buttonHeight)))
                 {
                     currentInstance.ImportFromClipboard();
                 }
@@ -1701,7 +1701,7 @@ namespace ChilledLeves.Ui
             if (ImGui.IsItemHovered())
             {
                 ImGui.BeginTooltip();
-                ImGui.Text("Import a worklist from clipboard in JSON format");
+                ImGui.Text("從剪貼簿匯入 JSON 格式的工作清單");
                 ImGui.EndTooltip();
             }
             
@@ -1712,12 +1712,12 @@ namespace ChilledLeves.Ui
             if (usingIceTheme)
             {
                 int textStyleCount = ThemeHelper.PushHeadingTextStyle();
-                ImGui.Text("Export Current Worklist to Clipboard");
+                ImGui.Text("將目前工作清單匯出至剪貼簿");
                 ImGui.PopStyleColor(textStyleCount);
             }
             else
             {
-                ImGui.Text("Export Current Worklist to Clipboard");
+                ImGui.Text("將目前工作清單匯出至剪貼簿");
             }
             
             ImGui.Spacing();
@@ -1732,7 +1732,7 @@ namespace ChilledLeves.Ui
                 ImGui.PushStyleColor(ImGuiCol.ButtonHovered, new Vector4(0.25f, 0.6f, 0.8f, 0.9f));
                 ImGui.PushStyleColor(ImGuiCol.ButtonActive, new Vector4(0.3f, 0.7f, 0.9f, 1.0f));
                 
-                if (ImGui.Button("Copy Worklist as JSON", new Vector2(buttonWidth, buttonHeight)))
+                if (ImGui.Button("將工作清單複製為 JSON###Copy Worklist as JSON", new Vector2(buttonWidth, buttonHeight)))
                 {
                     if (hasItems)
                     {
@@ -1748,11 +1748,11 @@ namespace ChilledLeves.Ui
                 ImGui.BeginTooltip();
                 if (hasItems)
                 {
-                    ImGui.Text("Copy as formatted JSON for sharing with others");
+                    ImGui.Text("複製為格式化 JSON，以便與其他人分享");
                 }
                 else
                 {
-                    ImGui.Text("Add items to your worklist first");
+                    ImGui.Text("請先將項目加入工作清單");
                 }
                 ImGui.EndTooltip();
             }
@@ -1764,12 +1764,12 @@ namespace ChilledLeves.Ui
             if (usingIceTheme)
             {
                 int textStyleCount = ThemeHelper.PushHeadingTextStyle();
-                ImGui.Text("Saved Worklists");
+                ImGui.Text("已儲存的工作清單");
                 ImGui.PopStyleColor(textStyleCount);
             }
             else
             {
-                ImGui.Text("Saved Worklists");
+                ImGui.Text("已儲存的工作清單");
             }
             
             float folderButtonWidth = ImGui.CalcTextSize("Open Folder").X + 20;
@@ -1780,7 +1780,7 @@ namespace ChilledLeves.Ui
                 int btnFolderStyleCount = ThemeHelper.PushButtonStyle();
                 ImGui.PushStyleVar(ImGuiStyleVar.FrameRounding, 4.0f);
                 
-                if (ImGui.Button("Open Folder", new Vector2(folderButtonWidth, 0)))
+                if (ImGui.Button("開啟資料夾###Open Folder", new Vector2(folderButtonWidth, 0)))
                 {
                     currentInstance.OpenWorklistFolder();
                 }
@@ -1790,7 +1790,7 @@ namespace ChilledLeves.Ui
             }
             else
             {
-                if (ImGui.Button("Open Folder", new Vector2(folderButtonWidth, 0)))
+                if (ImGui.Button("開啟資料夾###Open Folder", new Vector2(folderButtonWidth, 0)))
                 {
                     currentInstance.OpenWorklistFolder();
                 }
@@ -1799,7 +1799,7 @@ namespace ChilledLeves.Ui
             if (ImGui.IsItemHovered())
             {
                 ImGui.BeginTooltip();
-                ImGui.Text("Open the worklists folder in file explorer");
+                ImGui.Text("在檔案總管中開啟工作清單資料夾");
                 ImGui.EndTooltip();
             }
             
@@ -1807,7 +1807,7 @@ namespace ChilledLeves.Ui
             ImGui.Spacing();
             
             ImGui.AlignTextToFramePadding();
-            ImGui.TextUnformatted("Search:");
+            ImGui.TextUnformatted("搜尋：");
             ImGui.SameLine();
             
             if (usingIceTheme)
@@ -1831,11 +1831,11 @@ namespace ChilledLeves.Ui
             if (currentInstance.savedWorklists.Count == 0)
             {
                 ImGui.Spacing();
-                ImGui.TextDisabled("No saved worklists found");
+                ImGui.TextDisabled("找不到已儲存的工作清單");
             }
             else
             {
-                ImGui.TextDisabled($"Showing {visibleLists} of {totalLists} worklists");
+                ImGui.TextDisabled($"顯示 {visibleLists}/{totalLists} 個工作清單");
                 ImGui.Spacing();
                 
                 float remainingSpace = ImGui.GetContentRegionAvail().Y * 0.95f;
@@ -1851,9 +1851,9 @@ namespace ChilledLeves.Ui
                         float dateColWidth = Math.Max(120, textLineHeight * 7);
                         float actionColWidth = Math.Max(170, textLineHeight * 10);
                         
-                        ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.WidthFixed, nameColWidth);
-                        ImGui.TableSetupColumn("Created", ImGuiTableColumnFlags.WidthFixed, dateColWidth);
-                        ImGui.TableSetupColumn("Actions", ImGuiTableColumnFlags.WidthFixed, actionColWidth);
+                        ImGui.TableSetupColumn("名稱###Name", ImGuiTableColumnFlags.WidthFixed, nameColWidth);
+                        ImGui.TableSetupColumn("建立時間###Created", ImGuiTableColumnFlags.WidthFixed, dateColWidth);
+                        ImGui.TableSetupColumn("操作###Actions", ImGuiTableColumnFlags.WidthFixed, actionColWidth);
                         
                         ImGui.TableHeadersRow();
                         
@@ -1872,9 +1872,9 @@ namespace ChilledLeves.Ui
                         float dateColWidth = Math.Max(120, textLineHeight * 7);
                         float actionColWidth = Math.Max(170, textLineHeight * 10);
                         
-                        ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.WidthFixed, nameColWidth);
-                        ImGui.TableSetupColumn("Created", ImGuiTableColumnFlags.WidthFixed, dateColWidth);
-                        ImGui.TableSetupColumn("Actions", ImGuiTableColumnFlags.WidthFixed, actionColWidth);
+                        ImGui.TableSetupColumn("名稱###Name", ImGuiTableColumnFlags.WidthFixed, nameColWidth);
+                        ImGui.TableSetupColumn("建立時間###Created", ImGuiTableColumnFlags.WidthFixed, dateColWidth);
+                        ImGui.TableSetupColumn("操作###Actions", ImGuiTableColumnFlags.WidthFixed, actionColWidth);
                         
                         ImGui.TableHeadersRow();
                         
