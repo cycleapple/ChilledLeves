@@ -3,6 +3,7 @@
   "Name": "Chilled Leves",
   "Punchline": "I heard you like your leves on the rocks.",
   "Description": "A leve helper that lets you select which ones you want to do, and help turn them in for you. YOU NEED NAVMESH INSTALLED AS AN FYI.",
+  "RepoUrl": "https://github.com/cycleapple/ChilledLeves",
   "ApplicableVersion": "any",
   "Tags": [
     "Leves",
