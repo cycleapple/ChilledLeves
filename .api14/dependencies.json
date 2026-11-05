@@ -1,0 +1,8 @@
+[
+  {
+    "path": "ECommons",
+    "baseCommit": "3aeec9a52b721646445e2828d120dee17591eb35",
+    "patch": "patches/e347001520b30beb.patch",
+    "sha256": "b4b2395ea2f53f278ec973cc4d1b8e2386b352f12382ee0c9920c500cd387576"
+  }
+]
